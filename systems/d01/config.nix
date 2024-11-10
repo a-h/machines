@@ -1,4 +1,4 @@
-{ inputs, outputs, lib, config, pkgs, agenix, ... }:
+{ inputs, outputs, lib, config, pkgs, ... }:
 
 {
   networking.hostName = "d01";
@@ -18,7 +18,7 @@
     git
     gpg
     homemanager
-    network    
+    network
     printer
     sdr
     sound
@@ -61,8 +61,13 @@
     auto-optimise-store = true;
   };
 
+  programs.steam = {
+    enable = true;
+  };
+
   environment.systemPackages = [
     pkgs.xc
+    pkgs.steam
   ];
 
   # Grub settings.
