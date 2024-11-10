@@ -24,7 +24,7 @@
 
   # GPG over SSH - autoremoves stale sockets.
   services.openssh.extraConfig = ''
-    Match User headb
+    Match User adrian
       StreamLocalBindUnlink yes
   '';
 }

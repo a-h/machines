@@ -13,7 +13,7 @@
 # A few utility functions to make it easy and re-usable to draw segmented prompts
 
 CURRENT_BG='NONE'
-DEFAULT_USER='headb'
+DEFAULT_USER='adrian'
 
 case ${SOLARIZED_THEME:-dark} in
     *)     CURRENT_FG='black';;

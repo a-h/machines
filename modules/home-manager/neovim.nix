@@ -19,7 +19,7 @@ in
     "d /home/adrian/.vim/backup 700 adrian users - -"
     "d /home/adrian/.vim/swap 700 adrian users - -"
     "d /home/adrian/.vim/undo 700 adrian users - -"
-    "L+ /home/adrian/.config/nvim/lua - - - - ${../../nvim}"
+    "L+ /home/adrian/.config/nvim/lua - - - - ${../../neovim}"
   ];
 
   home.packages = with pkgs;
@@ -54,7 +54,7 @@ in
         # Use :TSHighlightCapturesUnderCursor to see the syntax under cursor.
         (pluginGit "nvim-treesitter" "playground" "ba48c6a62a280eefb7c85725b0915e021a1a0749" "sha256-gOQr61Y3bVa6EAb0P924X9SJmg9lOmGiLcFTMdgu8u0=")
         # Tressiter syntax highlighting.
-        nvim-treesitter-with-plugins
+        nvim-treesitter.withAllGrammars
         # Code coverage
         (pluginGit "nvim-lua" "plenary.nvim" "v0.1.4" "sha256-zR44d9MowLG1lIbvrRaFTpO/HXKKrO6lbtZfvvTdx+o=")
         (pluginGit "andythigpen" "nvim-coverage" "cf4b5c61dfac977026a51a2bcad9173c272986ce" "sha256-7Gle8osO4hPB2IGqtsAG+A1IK42BuqBxZVbLxH+sliI=")

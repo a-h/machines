@@ -63,7 +63,7 @@
         "adrian@d01" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           extraSpecialArgs = { inherit inputs outputs; };
-          modules = [ ./systems/d01/users/headb.nix ];
+          modules = [ ./systems/d01/users/adrian.nix ];
         };
       };
     };
