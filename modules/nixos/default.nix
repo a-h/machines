@@ -1,5 +1,5 @@
 {
-  basicconfig = import ./basicConfig.nix;
+  basicconfig = import ./basicconfig.nix;
   bluetooth = import ./bluetooth.nix;
   bootloader = import ./bootloader.nix;
   desktop = import ./desktop.nix;
