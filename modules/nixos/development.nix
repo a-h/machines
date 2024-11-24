@@ -49,6 +49,7 @@
     go
     go-swagger
     gotools
+    gopls
     goreleaser
     graphviz
     html2text
