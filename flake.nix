@@ -10,14 +10,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixos-raspberrypi.url = "github:nvmd/nixos-raspberrypi";
     disko.url = "github:nix-community/disko";
-    agenix.url = "github:ryantm/agenix";
-
-    edwardh-dev.url = "github:headblockhead/edwardh.dev";
   };
 
-  outputs = { nixpkgs, nixpkgs-unstable, home-manager, nixos-raspberrypi, disko, agenix, edwardh-dev, ... }@inputs:
+  outputs = { nixpkgs, nixpkgs-unstable, home-manager, disko, ... }@inputs:
     let
       # Which accounts can access which systems is handled per-system.
       accounts = [

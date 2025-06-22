@@ -23,7 +23,10 @@ in
       }
 
       ./config.nix
+      ./disko.nix
       ./hardware.nix
+
+      inputs.disko.nixosModules.disko
 
       basicConfig
       bootloader
