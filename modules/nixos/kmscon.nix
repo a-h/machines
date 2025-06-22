@@ -5,7 +5,6 @@
 }:
 let
   inherit (lib)
-    mapAttrs
     mkIf
     mkOption
     optional

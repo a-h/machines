@@ -11,11 +11,6 @@
     localNetworkGameTransfers.openFirewall = true;
     package = pkgs.unstable.steam;
   };
-  programs.alvr = {
-    enable = true;
-    package = pkgs.unstable.alvr;
-    openFirewall = true;
-  };
 
   boot.plymouth.extraConfig = ''
     DeviceScale=2
@@ -34,10 +29,6 @@
   '';
 
   environment.systemPackages = [
-    pkgs.clonehero
-    pkgs.blender-hip
     pkgs.vscode-fhs
-    pkgs.prismlauncher
-    pkgs.handbrake
   ];
 }

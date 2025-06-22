@@ -11,48 +11,10 @@
                 "window-list@gnome-shell-extensions.gcampax.github.com"
                 "apps-menu@gnome-shell-extensions.gcampax.github.com"
               ];
-              enabled-extensions = [
-                "system-monitor@gnome-shell-extensions.gcampax.github.com"
-                "display-brightness-ddcutil@themightydeity.github.com"
-                "unblank@sun.wxg@gmail.com"
-                "next-up@artisticat1.github.com"
-                "appindicatorsupport@rgcjonas.gmail.com"
-                "desktop-cube@schneegans.github.com"
-                "x11gestures@joseexposito.github.io"
-                "AlphabeticalAppGrid@stuarthayhurst"
-                "blur-my-shell@aunetx"
-              ];
-            };
-            "org/gnome/shell/extensions/display-brightness-ddcutil" = {
-              show-all-slider = false;
-              show-value-label = false;
-              show-display-name = false;
-              show-osd = true;
-              button-location = lib.gvariant.mkInt32 1;
-              hide-system-indicator = false;
-              position-system-indicator = lib.gvariant.mkDouble 2.0;
-              position-system-menu = lib.gvariant.mkDouble 3.0;
-              step-change-keyboard = lib.gvariant.mkDouble 10.0;
-              allow-zero-brightness = true;
-              ddcutil-binary-path = "${pkgs.ddcutil}/bin/ddcutil";
-            };
-            "org/gnome/shell/extensions/blur-my-shell/panel" = {
-              override-background-dynamically = true;
-            };
-            "org/gnome/desktop/session" = {
-              idle-delay = lib.gvariant.mkUint32 0;
-            };
-            "org/gnome/settings-daemon/plugins/power" = {
-              power-button-action = "interactive";
-              sleep-inactive-ac-type = "nothing";
-              sleep-inactive-battery-timeout = lib.gvariant.mkInt32 1800;
             };
             "org/gnome/desktop/background" = {
-              picture-uri = "file://${pkgs.nixos-artwork.wallpapers.nineish.gnomeFilePath}";
-              picture-uri-dark = "file://${pkgs.nixos-artwork.wallpapers.nineish-dark-gray.gnomeFilePath}";
-            };
-            "org/gnome/desktop/input-sources" = {
-              xkb-options = [ "terminate:ctrl_alt_bksp" "lv3:ralt_switch" "compose:rctrl" ];
+              picture-uri = "file://${pkgs.nixos-artwork.wallpapers.dracula.gnomeFilePath}";
+              picture-uri-dark = "file://${pkgs.nixos-artwork.wallpapers.dracula.gnomeFilePath}";
             };
             "org/gnome/nautilus/list-view" = {
               default-zoom-level = "small";
@@ -84,10 +46,6 @@
               default-show-menubar = false;
               schema-version = lib.gvariant.mkUint32 3;
               theme-variant = "default";
-            };
-            "org/gnome/terminal/legacy/keybindings" = {
-              prev-tab = "<Primary><Shift>Home";
-              next-tab = "<Primary><Shift>End";
             };
             "org/gnome/terminal/legacy/profiles:" = {
               default = "5ddfe964-7ee6-4131-b449-26bdd97518f7";
@@ -194,22 +152,7 @@
   services.xserver.excludePackages = [ pkgs.xterm ];
 
   environment.systemPackages = with pkgs; [
-    gnomeExtensions.appindicator # Tray icons
-    gnomeExtensions.unblank # Prevent screen from blanking when locked
-    gnomeExtensions.x11-gestures
-    gnomeExtensions.desktop-cube
-    gnomeExtensions.alphabetical-app-grid
-    gnomeExtensions.blur-my-shell
-    gnomeExtensions.brightness-control-using-ddcutil
-    ddcutil
-
-    gnome-pomodoro
-    newsflash
-    deja-dup
-    warp
     dconf-editor
-    plattenalbum
-
     adwaita-icon-theme
     adwaita-qt
   ];
@@ -250,6 +193,7 @@
   # Install fonts
   fonts.packages = [
     pkgs.unstable.nerd-fonts.sauce-code-pro
+    pkgs.unstable.nerd-fonts.blex-mono
   ];
 
   disabledModules = [ "services/ttys/kmscon.nix" ];

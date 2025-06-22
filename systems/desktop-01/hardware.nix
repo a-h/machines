@@ -8,12 +8,14 @@
 
   environment.systemPackages = with pkgs; [
     clinfo
-    lact
   ];
 
-  systemd.packages = with pkgs; [ lact ];
-  systemd.services.lactd.wantedBy = [ "multi-user.target" ];
-  boot.kernelParams = [ "amdgpu.ppfeaturemask=0xfffd7fff" ];
+  # NVIDIA
+  boot.kernelParams = [ "nvidia.NVreg_PreserveVideoMemoryAllocations=1" ];
+  hardware.nvidia = {
+    open = true;
+  };
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.graphics = {
     enable = true;
@@ -27,6 +29,7 @@
     ];
   };
 
+  # AMD
   hardware.amdgpu = {
     opencl.enable = true;
     amdvlk = {

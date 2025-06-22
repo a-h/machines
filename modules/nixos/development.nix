@@ -16,7 +16,6 @@ in
     cargo
     ccls
     cmake
-    ec2-ami-tools
     flyctl
     freecad-wayland
     gcc

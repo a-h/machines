@@ -3,18 +3,6 @@ let
   trustedUsernames = builtins.filter (username: (accountFromUsername username).trusted) usernames;
 in
 {
-  # Store /tmp in RAM.
-  boot.tmp.useTmpfs = true;
-  systemd.services.nix-daemon = {
-    environment.TMPDIR = "/var/tmp";
-  };
-
-  # Enable irqbalancer, to balance IRQs across cores.
-  services.irqbalance.enable = true;
-
-  # Enable nixos-help apps.
-  documentation.nixos.enable = true;
-
   # Set regonal settings.
   time.timeZone = "Europe/London";
   i18n.defaultLocale = "en_GB.UTF-8";
@@ -26,8 +14,6 @@ in
     trusted-users = trustedUsernames;
     experimental-features = "nix-command flakes";
     auto-optimise-store = true;
-    substituters = [ "https://cache.edwardh.dev" ];
-    trusted-public-keys = [ "cache.edwardh.dev-1:+Gafa747BGilG7GAbTC/1i6HX9NUwzMbdFAc+v5VOPk=" ];
     download-buffer-size = 524288000; # 500MiB
   };
 
@@ -53,7 +39,6 @@ in
   # Useful base packages for every system to have.
   environment.systemPackages = with pkgs; [
     git
-    xc
     neovim
     p7zip
 

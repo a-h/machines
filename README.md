@@ -29,12 +29,6 @@ Here is an overview of the most important files and folders in my config:
   * [custom-packages](custom-packages) contains modified versions of existing programs used by me.
   * [neovim](neovim) contains lua-based neovim configuration, [modified from @a-h's config](https://github.com/a-h/dotfiles/tree/3037eb252c0aab44d420c52b61fb98f17c6923a0/.config/nvim/lua).
 
-## Desktop Screenshots
-
-![neofetch and web browser](screenshots/edward-desktop-01-01.png)
-![neovim and mouth dreams](screenshots/edward-desktop-01-02.png)
-![cube](screenshots/edward-desktop-01-03.png)
-
 ## Installation
 
 ### Boot from NixOS installation media

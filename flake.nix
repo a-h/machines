@@ -1,15 +1,6 @@
 {
   description = "NixOS configuration for my desktops, laptops, and local network.";
 
-  nixConfig = {
-    extra-substituters = [
-      "https://cache.edwardh.dev"
-    ];
-    extra-trusted-public-keys = [
-      "cache.edwardh.dev-1:+Gafa747BGilG7GAbTC/1i6HX9NUwzMbdFAc+v5VOPk="
-    ];
-  };
-
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -31,13 +22,10 @@
       # Which accounts can access which systems is handled per-system.
       accounts = [
         {
-          username = "headb";
-          realname = "Edward Hesketh";
-          profileicon = ./users/headb.png;
+          username = "adrian";
+          realname = "Adrian Hesketh";
           sshkeys = [
-            "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICvr2FrC9i1bjoVzg+mdytOJ1P0KRtah/HeiMBuKD3DX cardno:23_836_181" # crystal-peak
-            "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIvDaJmOSXV24B83sIfZqAUurs+cZ7582L4QDePuc3p7 cardno:17_032_332" # depot-37
-            "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBexdKZYlyseEcm1S3xNDqPTGZMfm/NcW1ygY91weDhC cardno:30_797_561" # thunder-mountain
+            "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC4ZYYVVw4dsNtzOnBCTXbjuRqOowMOvP3zetYXeE5i+2Strt1K4vAw37nrIwx3JsSghxq1Qrg9ra0aFJbwtaN3119RR0TaHpatc6TJCtwuXwkIGtwHf0/HTt6AH8WOt7RFCNbH3FuoJ1oOqx6LZOqdhUjAlWRDv6XH9aTnsEk8zf+1m30SQrG8Vcclj1CTFMAa+o6BgGdHoextOhGMlTx8ESAlgIXCo+dIVjANE2qbfAg0XL0+BpwlRDJt5OcgzrILXZ1jSIYRW4eg/JBcDW/WqorEummxhB26Y6R0jeswRF3DOQhU2fAhbsCWdairLam42rFGlKfWyTbgjRXl/BNR"
           ];
           trusted = true; # Root access (trusted-user, wheel)
         }
@@ -64,9 +52,6 @@
             mesonFlags = (builtins.filter (flag: flag != "-Dssh-agent=true") oldAttrs.mesonFlags) ++ [
               "-Dssh-agent=false"
             ];
-          });
-          librespot = prev.librespot.overrideAttrs (oldAttrs: {
-            withDNS-SD = true;
           });
 
           # Set pkgs.home-manager to be the flake version.
